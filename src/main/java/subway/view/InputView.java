@@ -59,6 +59,28 @@ public class InputView {
         }
     }
 
+    public String requestOfUploadingLineName() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return input;
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestOfUploadingLineName();
+        }
+    }
+
+    public String requestOfRemovingLineName() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return input;
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestOfRemovingLineName();
+        }
+    }
+
     public SectionCommand requestSectionSelect() {
         try {
             String input = scanner.next();
