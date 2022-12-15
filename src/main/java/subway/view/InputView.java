@@ -37,6 +37,17 @@ public class InputView {
         }
     }
 
+    public String requestStationName() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return input;
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestStationName();
+        }
+    }
+
     public LineCommand requestLineSelect() {
         try {
             String input = scanner.next();
