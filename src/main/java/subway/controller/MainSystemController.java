@@ -11,14 +11,16 @@ public class MainSystemController {
     private final OutputView outputView = new OutputView();
     private final InputView inputView;
     private final StationController stationController;
-    private final LineController lineController = new LineController();
-    private final SectionController sectionController = new SectionController();
+    private final LineController lineController;
+    private final SectionController sectionController;
     private LineRepository lineRepository = new LineRepository();
     private StationRepository stationRepository = new StationRepository();
 
     public MainSystemController(InputView inputView) {
         this.inputView = inputView;
         stationController = new StationController(outputView, inputView, stationRepository, lineRepository);
+        lineController = new LineController(outputView, inputView, stationRepository, lineRepository);
+        sectionController = new SectionController(outputView, inputView, stationRepository, lineRepository);
     }
 
     public void run() {
