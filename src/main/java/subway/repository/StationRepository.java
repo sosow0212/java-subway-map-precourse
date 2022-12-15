@@ -1,9 +1,10 @@
-package subway.domain;
+package subway.repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import subway.domain.Station;
 
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
@@ -14,6 +15,15 @@ public class StationRepository {
 
     public static void addStation(Station station) {
         stations.add(station);
+    }
+
+    public static boolean hasStationName(String stationName) {
+        for (Station station : stations) {
+            if (station.getName().equals(stationName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean deleteStation(String name) {
