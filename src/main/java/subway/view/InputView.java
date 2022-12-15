@@ -91,4 +91,37 @@ public class InputView {
             return requestSectionSelect();
         }
     }
+
+    public String requestOfLineName() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return input;
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestOfLineName();
+        }
+    }
+
+    public String requestOfStationName() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return input;
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestOfStationName();
+        }
+    }
+
+    public int requestOfInputOrder() {
+        try {
+            String input = scanner.next();
+            // 예외
+            return Integer.parseInt(input);
+        } catch (IllegalArgumentException exception) {
+            printError(exception.getMessage());
+            return requestOfInputOrder();
+        }
+    }
 }

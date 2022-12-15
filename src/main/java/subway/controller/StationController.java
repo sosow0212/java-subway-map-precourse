@@ -50,7 +50,7 @@ public class StationController {
         while (true) {
             outputView.printRequestOfRemovingStation();
             String stationName = inputView.requestStationName();
-            if (stationRepository.hasStationName(stationName)) {
+            if (stationRepository.hasBeenStationNameAlready(stationName)) {
                 return stationName;
             }
             printError("존재하지 않는 역입니다.");
@@ -60,14 +60,14 @@ public class StationController {
 
     private void uploadStation() {
         String stationName = getUploadingStationName();
-        stationRepository.addStation(new Station(stationName));
+        stationRepository.addStation(stationName);
     }
 
     private String getUploadingStationName() {
         while (true) {
             outputView.printRequestOfUploadingStation();
             String stationName = inputView.requestStationName();
-            if (!stationRepository.hasStationName(stationName)) {
+            if (!stationRepository.hasBeenStationNameAlready(stationName)) {
                 return stationName;
             }
             printError("[ERROR] 이미 존재하는 역입니다.");

@@ -1,6 +1,5 @@
 package subway.controller;
 
-import java.util.Scanner;
 import subway.domain.MainCommand;
 import subway.repository.LineRepository;
 import subway.repository.StationRepository;
@@ -26,6 +25,9 @@ public class MainSystemController {
     public void run() {
         while (true) {
             MainCommand mainCommand = getCommand();
+            if (mainCommand.getCommand().equals("Q")) {
+                return;
+            }
             process(mainCommand);
         }
     }
@@ -34,6 +36,22 @@ public class MainSystemController {
         if (mainCommand.getCommand().equals("1")) {
             stationController.run();
         }
+        if (mainCommand.getCommand().equals("2")) {
+            lineController.run();
+        }
+        if (mainCommand.getCommand().equals("3")) {
+            sectionController.run();
+        }
+        if(mainCommand.getCommand().equals("4")) {
+            showAllInfo();
+        }
+        if(mainCommand.getCommand().equals("Q")) {
+            return;
+        }
+    }
+
+    public void showAllInfo() {
+        outputView.printShowAllInfo(lineRepository.lines());
     }
 
     private MainCommand getCommand() {

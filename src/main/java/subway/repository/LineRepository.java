@@ -19,6 +19,13 @@ public class LineRepository {
         lines.add(new Line(lineName, Arrays.asList(upStation, downStation)));
     }
 
+    public static Line findByName(String name) {
+        return lines().stream()
+                .filter(i -> i.getName().equals(name))
+                .findAny()
+                .orElseGet(null);
+    }
+
     public static boolean deleteLineByName(String name) {
         return lines.removeIf(line -> Objects.equals(line.getName(), name));
     }

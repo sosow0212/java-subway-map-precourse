@@ -99,6 +99,35 @@ public class OutputView {
         System.out.println(INFO + " 지하철 노선이 삭제되었습니다.");
     }
 
+    public void printRequestOfLineName() {
+        System.out.println("\n## 노선을 입력하세요.");
+    }
+
+    public void printRequestOfRemovingLineName() {
+        System.out.println("\n## 노선을 입력하세요.");
+    }
+
+    public void printRequestOfStationName() {
+        System.out.println("\n## 역 이름을 입력하세요.");
+    }
+
+    public void printRequestOfRemovingStationName() {
+        System.out.println("\n## 삭제할 역 이름을 입력하세요.");
+    }
+
+    public void printRequestOfOrder() {
+        System.out.println("\n## 순서를 입력하세요.");
+    }
+
+    public void printShowAllInfo(List<Line> lines) {
+        for (Line line : lines) {
+            System.out.println("\n" + INFO + " " + line.getName());
+            System.out.println(INFO + " ---");
+            line.getStations()
+                    .forEach(i -> System.out.println(INFO + " " + i.getName()));
+        }
+    }
+
     public static void printError(String message) {
         System.out.println(ERROR + message);
     }

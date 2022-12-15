@@ -15,8 +15,8 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
-    public static void addStation(Station station) {
-        stations.add(station);
+    public static void addStation(String stationName) {
+        stations.add(new Station(stationName));
     }
 
     public static boolean hasBeenStationNameAlready(String stationName) {
