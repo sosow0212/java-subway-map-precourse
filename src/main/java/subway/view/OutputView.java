@@ -2,8 +2,9 @@ package subway.view;
 
 public class OutputView {
     private static final String INFO = "[INFO]";
+    private static final String ERROR = "[ERROR] ";
 
-    public void printMainSelect() {
+    public void printRequestOfMainSelect() {
         System.out.println("## 메인 화면\n"
                 + "1. 역 관리\n"
                 + "2. 노선 관리\n"
@@ -71,5 +72,9 @@ public class OutputView {
 
     public void printRemovingLineSuccessfully() {
         System.out.println(INFO + " 지하철 노선이 삭제되었습니다.");
+    }
+
+    public static void printError(String message) {
+        System.out.println(ERROR + message);
     }
 }
